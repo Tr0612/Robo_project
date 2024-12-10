@@ -6,12 +6,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/franka_emika/panda/protos/Panda.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/school_furniture/protos/Blackboard.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/franka_emika/panda/protos/PandaHand.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.26713807652255095 -0.2647885265813807 0.9265658553296108 4.917047940264842
-  position -2.3319787719980587 5.4651245208183825 3.294650665944135
+  orientation -0.15963574392624155 -0.09555518369658536 0.9825403992354855 4.715937307526243
+  position 0.16521451363465284 3.728193690421404 1.2991847121114208
 }
 TexturedBackground {
 }
@@ -27,8 +28,28 @@ Blackboard {
   rotation 0 0 1 3.14159
 }
 DEF panda Panda {
+  hidden translation_1 0.0007858225765274424 9.579197959188347e-05 -0.0002717978591883774
+  hidden rotation_1 -0.16679006572828806 0.9859903953446787 -0.0020035624266553156 0.000368300170012039
+  hidden position_1_0 0.000287738157340936
+  hidden rotation_2 0 0 0.9999999999999999 0.00028773815712858987
+  hidden position_2_0 7.790902416854233e-05
+  hidden rotation_3 -0.9999999984825456 3.895452477500118e-05 3.8954512044863365e-05 1.5707960015174545
+  hidden position_3_0 3.456450756204643e-05
+  hidden rotation_4 0.9999999997013237 -1.7282259425335274e-05 1.7282253777582012e-05 1.5707960002986763
+  hidden position_4_0 -1.99898927763016
+  hidden rotation_5 0.47858568781575866 0.6208686500411789 -0.6208686324931881 2.248851923504823
+  hidden position_5_0 -2.9670936899885354
+  hidden rotation_6 -0.6555487341022873 -0.5339738025285475 -0.5339736280286624 1.981060298366279
+  hidden position_6_0 2.9970258458649974
+  hidden rotation_7 0.05113429922691983 -0.7061818495908108 0.7061816188142207 3.039413016691963
+  hidden position_7_0 1.0004096719086262
+  hidden rotation_8 0.7911941067419641 -0.43244190805353333 0.43244176673374757 1.802895569330391
+  hidden position_10_0 0.0012109319543223643
+  hidden position_10_1 -0.0014747984379869146
+  hidden translation_11 0 0.0012109319543223643 0.0584
+  hidden translation_12 0 0.0014747984379869146 0.0584
   translation 0 0 0.21
-  controller "panda_robo_5000"
+  controller "<none>"
   endEffectorSlot [
     DEF pen Pen {
       leadSize 0.02
