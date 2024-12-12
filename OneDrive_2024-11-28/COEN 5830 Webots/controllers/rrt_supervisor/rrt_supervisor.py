@@ -3,12 +3,52 @@ import numpy as np
 import struct
 import time
 import math
+import matplotlib.pyplot as plt
+import imageio
+import numpy as np
 
 class Node:
     """Class to represent a node in the RRT tree."""
     def __init__(self, position, parent=None):
         self.position = position
         self.parent = parent
+        
+        
+def create_visualization(path, arena_bounds, goal, goal_radius, filename="rrt_path.gif"):
+    """
+    Generate a GIF visualization of the robot's movement along the path.
+    """
+    images = []
+    fig, ax = plt.subplots()
+
+    # Define arena
+    arena_x = [arena_bounds[0], arena_bounds[1], arena_bounds[1], arena_bounds[0], arena_bounds[0]]
+    arena_y = [arena_bounds[2], arena_bounds[2], arena_bounds[3], arena_bounds[3], arena_bounds[2]]
+
+    # Plot arena bounds and goal
+    ax.plot(arena_x, arena_y, 'k-', label="Arena Bounds")
+    goal_circle = plt.Circle(goal[:2], goal_radius, color='green', alpha=0.5, label="Goal Region")
+    ax.add_patch(goal_circle)
+    ax.set_xlim(arena_bounds[0] - 0.1, arena_bounds[1] + 0.1)
+    ax.set_ylim(arena_bounds[2] - 0.1, arena_bounds[3] + 0.1)
+    ax.set_aspect('equal', adjustable='box')
+    ax.legend()
+
+    # Animate the path
+    for i in range(len(path)):
+        ax.plot([p[0] for p in path[:i+1]], [p[1] for p in path[:i+1]], 'b-', label="Path")
+        ax.scatter(path[i][0], path[i][1], color='red', s=50, label="Robot")
+        plt.title(f"Step {i+1}/{len(path)}")
+        plt.draw()
+
+        # Save frame
+        plt.savefig("temp_frame.png")
+        images.append(imageio.imread("temp_frame.png"))
+
+    # Save as GIF
+    imageio.mimsave(filename, images, duration=0.5)
+    plt.close(fig)
+    print(f"GIF saved as {filename}")
 
 def distance(p1, p2):
     """Calculate Euclidean distance between two points."""
@@ -108,6 +148,7 @@ def main():
     goal = [0.6, 0.6]
     step_size = 0.1
     max_iterations = 1000
+    goal_radius = 0.1
 
     # Plan path using RRT
     path = rrt_planning(supervisor, emitter, receiver, start, goal, arena_bounds, step_size, max_iterations)
@@ -115,7 +156,8 @@ def main():
     if path is None:
         print("Path not found.")
         return
-
+    else:
+        create_visualization(path, arena_bounds, goal, goal_radius)
     print("Path found:", path)
 
     # Reset and replay the solution path

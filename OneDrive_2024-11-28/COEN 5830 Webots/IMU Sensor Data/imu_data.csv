@@ -1,4 +1,4 @@
-Time (s),Accel X,Accel Y,Accel Z,Gyro X ,Gyro Y ,Gyro Z
+Time (s),Accel X,Accel Y,Accel Z,Gyro X,Gyro Y,Gyro Z
 0,0,0,9.81,0,0,1.0525
 0.01,0,0,9.81,0,0,1.0525
 0.02,0,0,9.81,0,0,1.0525
