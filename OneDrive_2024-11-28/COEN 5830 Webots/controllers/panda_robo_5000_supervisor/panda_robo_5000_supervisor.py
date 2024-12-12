@@ -30,8 +30,8 @@ move_joints(initial_position, 1000)
 
 
 # initial_position = 
-move_joints([0, 0, 0, -1.56, -2.0, 3.0, 1.0] , 1000)
-move_joints([0, 0, 0, -2, -2.97, 3.0, 1.0] , 1000)
+# move_joints([0, 0, 0, -1.56, -2.0, 3.0, 1.0] , 1000)
+# move_joints([0, 0, 0, -2, -2.97, 3.0, 1.0] , 1000)
 
 
 # move_joints([0, 0, 0,-1.5,-2, 3,1], 1000)
